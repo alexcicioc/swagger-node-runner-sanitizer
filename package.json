@@ -1,6 +1,6 @@
 {
   "name": "swagger-node-runner-sanitizer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Swagger node runner fitting to sanitize requests for XSS and NoSQL injections",
   "main": "index.js",
   "scripts": {

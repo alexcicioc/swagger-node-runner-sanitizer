@@ -8,6 +8,8 @@ const sanitizer = require('sanitizer');
  * @returns {String} - Sanitized string
  */
 const mongoSanitize = (string) => {
+  string.replace('.', '&#46;');
+
   if (string.substring(0, 1) === '$') {
     return `&#36;${string.substring(1)}`;
   }
@@ -33,7 +35,7 @@ const sanitizeRecursive = (variable) => {
       variable[key] = sanitizeRecursive(variable[key]);
     }
   } else if (typeof variable === 'string') {
-    return mongoSanitize(sanitizer.sanitize(variable));
+    return sanitizer.sanitize(variable);
   }
   return variable;
 };
@@ -41,14 +43,14 @@ const sanitizeRecursive = (variable) => {
 /**
  * Sanitizes query, post or raw body params recursively
  *
- * @param context
+ * @param {Object} request
  * @returns {*}
  */
-const sanitize = (context) => {
-  context.request.query = sanitizeRecursive(context.request.query);
-  context.request.params = sanitizeRecursive(context.request.params);
-  context.request.body = sanitizeRecursive(context.request.body);
-  return context;
+const sanitize = (request) => {
+  request.query = sanitizeRecursive(request.query);
+  request.params = sanitizeRecursive(request.params);
+  request.body = sanitizeRecursive(request.body);
+  return request;
 };
 
 module.exports = {sanitize};
