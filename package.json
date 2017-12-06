@@ -1,0 +1,22 @@
+{
+  "name": "swagger-node-runner-sanitizer",
+  "version": "1.0.0",
+  "description": "Swagger node runner fitting to sanitize requests for XSS and NoSQL injections",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexcicioc/swagger-node-runner-sanitizer.git"
+  },
+  "author": "Alex Cicioc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexcicioc/swagger-node-runner-sanitizer/issues"
+  },
+  "homepage": "https://github.com/alexcicioc/swagger-node-runner-sanitizer#readme",
+  "dependencies": {
+    "sanitizer": "^0.1.3"
+  }
+}
